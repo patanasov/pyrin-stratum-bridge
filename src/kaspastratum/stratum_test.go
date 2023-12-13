@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/Pyrinpyi/pyipad/app/appmessage"
+	"github.com/Pyrinpyi/pyipad/util/difficulty"
 	"github.com/google/go-cmp/cmp"
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/util/difficulty"
 )
 
 func TestHeaderSerialization(t *testing.T) {

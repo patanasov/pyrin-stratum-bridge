@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/kaspanet/kaspad/app/appmessage"
+	"github.com/Pyrinpyi/pyipad/app/appmessage"
 	"github.com/onemorebsmith/kaspastratum/src/gostratum"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
@@ -152,15 +152,15 @@ func InitInvalidCounter(worker *gostratum.StratumContext, errorType string) {
 }
 
 func InitWorkerCounters(worker *gostratum.StratumContext) {
-  labels := commonLabels(worker)
+	labels := commonLabels(worker)
 
 	shareCounter.With(labels).Add(0)
 	shareDiffCounter.With(labels).Add(0)
 
-  errTypes := []string{"stale", "duplicate", "invalid", "weak"}
-  for _, e := range errTypes {
-    InitInvalidCounter(worker, e)
-  }
+	errTypes := []string{"stale", "duplicate", "invalid", "weak"}
+	for _, e := range errTypes {
+		InitInvalidCounter(worker, e)
+	}
 
 	blockCounter.With(labels).Add(0)
 

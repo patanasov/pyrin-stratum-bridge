@@ -42,13 +42,15 @@ func configureZap(cfg BridgeConfig) (*zap.SugaredLogger, func()) {
 	// log file fun
 	logFile, err := os.OpenFile("bridge.log", os.O_CREATE|os.O_TRUNC|os.O_RDWR, 0666)
 	if err != nil {
-		panic(err)
+		panic(any(err))
 	}
 	core := zapcore.NewTee(
 		zapcore.NewCore(fileEncoder, zapcore.AddSync(logFile), zap.InfoLevel),
 		zapcore.NewCore(consoleEncoder, zapcore.AddSync(colorable.NewColorableStdout()), zap.InfoLevel),
 	)
-	return zap.New(core).Sugar(), func() { logFile.Close() }
+	return zap.New(core).Sugar(), func() {
+		//logFile.Close()
+	}
 }
 
 func ListenAndServe(cfg BridgeConfig) error {

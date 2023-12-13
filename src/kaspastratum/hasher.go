@@ -9,7 +9,7 @@ import (
 	"log"
 	"math/big"
 
-	"github.com/kaspanet/kaspad/app/appmessage"
+	"github.com/Pyrinpyi/pyipad/app/appmessage"
 	"golang.org/x/crypto/blake2b"
 )
 
@@ -21,7 +21,7 @@ var (
 )
 
 // Basically three different ways of representing difficulty, each used on
-// different occasions.  All 3 are updated when the stratum diff is set via 
+// different occasions.  All 3 are updated when the stratum diff is set via
 // the setDiffValue method
 type kaspaDiff struct {
 	hashValue   float64  // previously known as shareValue

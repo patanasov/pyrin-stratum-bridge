@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/kaspanet/kaspad/util"
+	"github.com/Pyrinpyi/pyipad/util"
 	"github.com/mattn/go-colorable"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -114,7 +114,7 @@ func SendExtranonce(ctx *StratumContext) {
 var walletRegex = regexp.MustCompile("pyrin:[a-z0-9]+")
 
 func CleanWallet(in string) (string, error) {
-	_, err := util.DecodeAddress(in, util.Bech32PrefixKaspa)
+	_, err := util.DecodeAddress(in, util.Bech32PrefixPyrin)
 	if err == nil {
 		return in, nil // good to go
 	}
